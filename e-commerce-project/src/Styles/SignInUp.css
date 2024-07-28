@@ -3,7 +3,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: aqua;
+    background: linear-gradient(45deg, #6f44bf, #a64bb2, #5B74EA, #6030B9);
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+}
+@keyframes color{
+    0%{
+        background-position: 0 50%;
+    }
+    50%{
+        background-position: 100% 50%;
+    }
+    100%{
+        background-position: 0 50%;
+    }
 }
 
 .sign-in-up-wrapper{
@@ -13,7 +26,10 @@
     width: 420px;
     height: 450px;
     border-radius: 10px;
-    background-color:darkslategray;
+    background-color: transparent;
+    border: 2px solid rgba(255, 255, 255, .1);
+    backdrop-filter: blur(70px);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: azure;
     overflow: hidden;
     transition: height .2s ease;
