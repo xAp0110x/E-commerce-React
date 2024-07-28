@@ -7,17 +7,46 @@
 }
 
 .sign-in-up-wrapper{
+    display: flex;
+    align-items: center;
     position: relative;
     width: 420px;
     height: 450px;
     border-radius: 10px;
     background-color:darkslategray;
     color: azure;
+    overflow: hidden;
+    transition: height .2s ease;
 }
 
 .sign-in-up-wrapper .form-block{
     width: 100%;
     padding: 40px;
+}
+
+.sign-in-up-wrapper .form-block.signin{
+    transition: translate .18s ease;
+    translate: 0;
+}
+
+.sign-in-up-wrapper.active{
+    height: 500px;
+}
+
+.sign-in-up-wrapper.active .form-block.signin{
+    transition: none;
+    translate: -400px;
+}
+
+.sign-in-up-wrapper.active .form-block.signup{
+    transition: translate .18s ease;
+    translate: 0;
+}
+
+.sign-in-up-wrapper .form-block.signup{
+    position: absolute;
+    transition: none;
+    translate: 400px;
 }
 
 form h1{
