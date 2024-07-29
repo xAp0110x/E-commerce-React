@@ -18,6 +18,10 @@ const SignInUp = () => {
 
     return (
         <div className="sign-in-up-body">
+
+            {/* Waves */}
+            <div className="waves-layer"></div>
+
             <div className={`sign-in-up-wrapper${action}`}>
                 {/* sign in form */}
                 <div className="form-block signin">

@@ -6,6 +6,7 @@
     background: linear-gradient(45deg, #6f44bf, #a64bb2, #5B74EA, #6030B9);
     background-size: 300% 300%;
     animation: color 12s ease-in-out infinite;
+    position: relative;
 }
 @keyframes color{
     0%{
@@ -19,6 +20,14 @@
     }
 }
 
+.waves-layer{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 600px;
+    background-image: url('../Assets/layered-waves-haikei.svg');
+}
+
 .sign-in-up-wrapper{
     display: flex;
     align-items: center;
@@ -26,9 +35,9 @@
     width: 420px;
     height: 450px;
     border-radius: 10px;
-    background-color: transparent;
+    background-color: rgba(47, 79, 79, 0.381);
     border: 2px solid rgba(255, 255, 255, .1);
-    backdrop-filter: blur(70px);
+    backdrop-filter: blur(20px);
     box-shadow: 0 0 10px rgba(0, 0, 0, .2);
     color: azure;
     overflow: hidden;
