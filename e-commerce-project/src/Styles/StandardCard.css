@@ -14,21 +14,21 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.product-image {
+.standard-card .product-image {
     width: 100%;
     height: auto;
 }
 
-.product-info {
+.standard-card .product-info {
     padding: 10px;
 }
 
-.product-name {
+.standard-card .product-name {
     font-size: 1.2em;
     margin: 0;
 }
 
-.product-price {
+.standard-card .product-price {
     color: #888;
     font-size: 1em;
 }
