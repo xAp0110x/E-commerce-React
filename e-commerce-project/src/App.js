@@ -1,21 +1,26 @@
 import './App.css';
-import React from 'react';
+import React, { useState } from 'react';
 import SignInUp from './Components/SignInUp/SignInUp';
 import StandardCard from './Components/ProductCards/StandardCard';
 import MinCard from './Components/ProductCards/MinCard';
+import MaxCard from './Components/ProductCards/MaxCard';
 import products from './data/products';
 
 function App() {
 
+  const [selectedProduct, setSelectedProduct] = useState(null);
+
   const handleCardClick = (product) => {
-    alert(`MaxCard: ${product.name}`);
+    setSelectedProduct(product);
   };
-  // testing product cards
 
   const handleRemove = (id) => {
     alert(`Remove product with ID: ${id}`);
   };
-  // Логика для удаления продукта из избранных или корзины
+
+  const handleCloseMaxCard = () => {
+    setSelectedProduct(null);
+  };
 
   return (
     <div className="App">
@@ -43,6 +48,14 @@ function App() {
           onRemove={handleRemove}
         />
       ))}
+      {/* component test */}
+
+      {selectedProduct && (
+        <MaxCard
+          product={selectedProduct}
+          onClose={handleCloseMaxCard}
+        />
+      )}
       {/* component test */}
 
     </div>

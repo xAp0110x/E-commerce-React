@@ -1,0 +1,86 @@
+.max-card-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.max-card {
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    overflow: hidden;
+    width: 80%;
+    max-width: 800px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.max-card .product-image {
+    padding: 12px 8px;
+    width: 50%;
+    object-fit: contain;
+}
+
+.max-card .product-info {
+    padding: 20px 35px 20px 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.max-card .product-title {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+}
+
+.max-card .product-info p{
+    margin-bottom: 8px;
+}
+
+.max-card .product-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+}
+
+.max-card .button-heart,
+.max-card .button-cart {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 0;
+    cursor: pointer;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 46%;
+    font-size: 16px;
+}
+
+.max-card .button-heart:hover,
+.max-card .button-cart:hover {
+    color: red;
+    font-size: 18px;
+    transition: all ease 0.3s;
+    width: 48%;
+}
+
+.max-card .button-heart i,
+.max-card .button-cart i {
+    margin-right: 5px;
+}
+
+.max-card .product-price {
+    font-size: 1.5em;
+    text-align: right;
+    margin-top: auto;
+    font-weight: bold;
+    text-decoration: underline;
+}
