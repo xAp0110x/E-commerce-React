@@ -1,6 +1,8 @@
 import './App.css';
 import React, { useState } from 'react';
 import Navbar from './Components/Navbar/Navbar';
+import Carousel from './Components/Carousel/Carousel';
+import Footer from './Components/Footer/Footer';
 import SignInUp from './Components/SignInUp/SignInUp';
 import StandardCard from './Components/ProductCards/StandardCard';
 import MinCard from './Components/ProductCards/MinCard';
@@ -45,9 +47,9 @@ function App() {
         onSignInUpClick={handleSignInUpClick}
       />
 
-      {showSignInUp && <SignInUp />}
+      <Carousel />
 
-      {/* <SignInUp /> */}
+      {/* {showSignInUp && <SignInUp />} */}
 
       {/* <h1>Standard Cards Example</h1>
       {products.map((product) => (
@@ -75,6 +77,8 @@ function App() {
           onClose={handleCloseMaxCard}
         />
       )} */}
+
+      <Footer />
 
     </div>
   );

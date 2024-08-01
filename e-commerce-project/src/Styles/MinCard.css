@@ -33,11 +33,11 @@
     font-size: 18px;
     cursor: pointer;
     text-align: center;
+    transition: all 0.1s;
 }
 
 .min-card .remove-button:hover {
     border: 2px solid red;
     color: red;
     font-size: 22px;
-    transition: all 0.1s;
 }
