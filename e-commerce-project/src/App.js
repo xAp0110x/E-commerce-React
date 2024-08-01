@@ -1,5 +1,6 @@
 import './App.css';
 import React, { useState } from 'react';
+import Navbar from './Components/Navbar/Navbar';
 import SignInUp from './Components/SignInUp/SignInUp';
 import StandardCard from './Components/ProductCards/StandardCard';
 import MinCard from './Components/ProductCards/MinCard';
@@ -9,6 +10,19 @@ import products from './data/products';
 function App() {
 
   const [selectedProduct, setSelectedProduct] = useState(null);
+  const [showSignInUp, setShowSignInUp] = useState(false);
+
+  const handleFavoritesClick = () => {
+    alert('Open Favorites Panel');
+  };
+
+  const handleCartClick = () => {
+    alert('Open Cart Panel');
+  };
+
+  const handleSignInUpClick = () => {
+    setShowSignInUp(true);
+  };
 
   const handleCardClick = (product) => {
     setSelectedProduct(product);
@@ -24,11 +38,18 @@ function App() {
 
   return (
     <div className="App">
+
+      <Navbar
+        onFavoritesClick={handleFavoritesClick}
+        onCartClick={handleCartClick}
+        onSignInUpClick={handleSignInUpClick}
+      />
+
+      {showSignInUp && <SignInUp />}
+
       {/* <SignInUp /> */}
-      {/* component test */}
 
-
-      <h1>Standard Cards Example</h1>
+      {/* <h1>Standard Cards Example</h1>
       {products.map((product) => (
         <StandardCard
           key={product.id}
@@ -36,7 +57,6 @@ function App() {
           onClick={handleCardClick}
         />
       ))}
-      {/* component test */}
 
 
       <h1>Min Cards Example</h1>
@@ -48,15 +68,13 @@ function App() {
           onRemove={handleRemove}
         />
       ))}
-      {/* component test */}
 
       {selectedProduct && (
         <MaxCard
           product={selectedProduct}
           onClose={handleCloseMaxCard}
         />
-      )}
-      {/* component test */}
+      )} */}
 
     </div>
   );
