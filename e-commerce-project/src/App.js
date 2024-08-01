@@ -1,82 +1,71 @@
-import './App.css';
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Navbar from './Components/Navbar/Navbar';
 import Footer from './Components/Footer/Footer';
-import SignInUp from './Components/SignInUp/SignInUp';
-import StandardCard from './Components/ProductCards/StandardCard';
-import MinCard from './Components/ProductCards/MinCard';
+import Home from './pages/Home/Home';
+import News from './Components/News/News';
+import AboutUs from './Components/AboutUs/AboutUs';
 import MaxCard from './Components/ProductCards/MaxCard';
-import CartPanel from './Components/SlidingPanels/CartPanel';
-import Carousel from './Components/Carousel/Carousel';
 import products from './data/products';
+import './App.css';
 
 function App() {
   const [selectedProduct, setSelectedProduct] = useState(null);
-  const [cartProducts, setCartProducts] = useState([]);
+  const [isFavoritesOpen, setIsFavoritesOpen] = useState(false);
   const [isCartOpen, setIsCartOpen] = useState(false);
+  const [isUserOpen, setIsUserOpen] = useState(false);
+  const [cartItems, setCartItems] = useState([]);
+
+  const handleAddToCart = (product) => {
+    setCartItems([...cartItems, product]);
+    console.log(`Добавлено в корзину: ${product.name}`);
+  };
 
   const handleCardClick = (product) => {
-    setSelectedProduct(product);
+      setSelectedProduct(product);
   };
 
   const handleCloseMaxCard = () => {
-    setSelectedProduct(null);
+      setSelectedProduct(null);
   };
 
-  const handleRemove = (id) => {
-    setCartProducts(cartProducts.filter(product => product.id !== id));
+  const handleOpenFavorites = () => {
+      setIsFavoritesOpen(!isFavoritesOpen);
   };
 
-  const handleAddToCart = (product) => {
-    setCartProducts([...cartProducts, product]);
-    setIsCartOpen(true);
+  const handleOpenCart = () => {
+      setIsCartOpen(!isCartOpen);
   };
 
-  const handleCartClick = () => {
-    setIsCartOpen(!isCartOpen);
+  const handleOpenUser = () => {
+      setIsUserOpen(!isUserOpen);
   };
 
   return (
-    <div className="App">
-      <Navbar 
-        onFavoritesClick={() => {}}
-        onCartClick={handleCartClick} 
-        onSignInUpClick={() => {}} 
-      />
-      <Carousel />
-      <h1>Standard Cards Example</h1>
-      {products.map((product) => (
-        <StandardCard
-          key={product.id}
-          product={product}
-          onClick={handleCardClick}
-        />
-      ))}
-      <h1>Min Cards Example</h1>
-      {products.map(product => (
-        <MinCard
-          key={product.id}
-          product={product}
-          onClick={handleCardClick}
-          onRemove={handleRemove}
-        />
-      ))}
-      {selectedProduct && (
-        <MaxCard
-          product={selectedProduct}
-          onClose={handleCloseMaxCard}
-          onAddToCart={handleAddToCart}
-        />
-      )}
-      <CartPanel 
-        isOpen={isCartOpen} 
-        products={cartProducts} 
-        onRemove={handleRemove}
-        onClose={() => setIsCartOpen(false)}
-        onClick={handleCardClick}
-      />
-      <Footer />
-    </div>
+      <Router>
+          <div className="App">
+              <Navbar 
+                  onOpenFavorites={handleOpenFavorites} 
+                  onOpenCart={handleOpenCart} 
+                  onOpenUser={handleOpenUser} 
+              />
+              <Routes>
+                  <Route path="/" element={<Home onCardClick={handleCardClick} />} />
+                  {/* <Route path="/catalog" element={<Catalog onCardClick={handleCardClick} />} /> */}
+                  <Route path="/news" element={<News />} />
+                  <Route path="/about-us" element={<AboutUs />} />
+              </Routes>
+
+              {selectedProduct && (
+                  <MaxCard
+                      product={selectedProduct}
+                      onClose={handleCloseMaxCard}
+                      onAddToCart={handleAddToCart}
+                  />
+              )}
+              <Footer />
+          </div>
+      </Router>
   );
 }
 

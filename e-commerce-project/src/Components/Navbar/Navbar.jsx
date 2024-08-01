@@ -1,35 +1,30 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import '../../Styles/Navbar.css';
 import { FaHeart, FaShoppingCart, FaUser } from 'react-icons/fa';
 import LogoIcon from '../../Assets/LogoIconBlack.png';
+import { Link } from 'react-router-dom';
 
-const Navbar = ({ onFavoritesClick, onCartClick, onSignInUpClick }) => {
+
+const Navbar = ({ onOpenFavorites, onOpenCart, onOpenUser }) => {
     return (
         <nav className="navbar">
             <div className="navbar-logo">
                 <img src={LogoIcon} alt="TechnoMania Logo" className="logo-icon" />
                 <span className="logo-text">TechnoMania</span>
             </div>
-            <div className="navbar-links">
-                <button>Home</button>
-                <button>Catalog</button>
-                <button>News</button>
-                <button>About Us</button>
-            </div>
+            <ul className="nav-links">
+                <li><Link to="/">Home</Link></li>
+                <li><Link to="/catalog">Catalog</Link></li>
+                <li><Link to="/news">News</Link></li>
+                <li><Link to="/about-us">About Us</Link></li>
+            </ul>
             <div className="navbar-icons">
-                <FaHeart onClick={onFavoritesClick} className="navbar-icon" />
-                <FaShoppingCart onClick={onCartClick} className="navbar-icon" />
-                <FaUser onClick={onSignInUpClick} className="navbar-icon" />
+                <FaHeart onClick={onOpenFavorites} className="navbar-icon" />
+                <FaShoppingCart onClick={onOpenCart} className="navbar-icon" />
+                <FaUser onClick={onOpenUser} className="navbar-icon" />
             </div>
         </nav>
     );
-};
-
-Navbar.propTypes = {
-    onFavoritesClick: PropTypes.func.isRequired,
-    onCartClick: PropTypes.func.isRequired,
-    onSignInUpClick: PropTypes.func.isRequired,
 };
 
 export default Navbar;

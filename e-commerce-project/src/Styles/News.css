@@ -1,0 +1,29 @@
+.news {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    margin: 20px 0;
+}
+
+.news h2 {
+    color: #333;
+}
+
+.news ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.news li {
+    margin-bottom: 15px;
+}
+
+.news h3 {
+    margin: 0;
+    color: #007bff;
+}
+
+.news p {
+    margin: 5px 0 0;
+    color: #555;
+}

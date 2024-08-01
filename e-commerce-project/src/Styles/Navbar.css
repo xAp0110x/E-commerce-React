@@ -28,17 +28,22 @@
     color: #fff;
 }
 
-.navbar-links button {
+.navbar ul{
+    display: flex;
+}
+
+.nav-links li {
     margin: 0 15px;
     font-size: 1em;
     text-decoration: none;
+    list-style: none;
     color: #fff;
     border: none;
     background: none;
     transition: color 0.3s;
 }
 
-.navbar-links button:hover {
+.nav-links li:hover {
     color: #007bff;
 }
 
